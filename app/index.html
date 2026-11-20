@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Sunset Cover Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="top">
+  <h1>Neon Sunset Cover Studio</h1>
+  <p>Turn your photos into a multi-panel neon-sunset poster. Everything runs offline, on your machine.</p>
+</header>
+<main class="app">
+  <section class="controls" aria-label="Editor controls">
+    <div class="group">
+      <h2>1 · Photos</h2>
+      <label class="filebtn">Add photos
+        <input id="photoInput" type="file" accept="image/*" multiple>
+      </label>
+      <div class="samples">
+        <button id="demoBoulevard" type="button">Try Boulevard sample</button>
+        <button id="demoPier" type="button">Try Pier sample</button>
+      </div>
+      <p class="hint">Or drop image files anywhere on this page. 1–5 photos, read locally, never uploaded.</p>
+      <div id="thumbs" class="thumbs"></div>
+    </div>
+
+    <div class="group">
+      <h2>2 · Layout</h2>
+      <div class="layouts" role="group" aria-label="Layout">
+        <button type="button" data-layout="triple" class="layoutbtn active">Triple panels</button>
+        <button type="button" data-layout="hero" class="layoutbtn">Hero + three</button>
+        <button type="button" data-layout="collage" class="layoutbtn">Five-panel collage</button>
+      </div>
+      <div id="panels" class="panels"></div>
+      <p class="hint">Click a panel on the cover to select it, then drag it to reposition its photo.</p>
+    </div>
+
+    <div class="group">
+      <h2>3 · Grade &amp; caption</h2>
+      <label>Neon grade <span id="gradeVal">60%</span>
+        <input id="grade" type="range" min="0" max="100" value="60">
+      </label>
+      <label>Caption
+        <input id="caption" type="text" maxlength="40" value="Sunset Heist">
+      </label>
+      <div class="row">
+        <button type="button" id="posTop" class="segbtn">Caption on top</button>
+        <button type="button" id="posBottom" class="segbtn active">Caption at bottom</button>
+      </div>
+      <div class="swatches" role="group" aria-label="Caption color">
+        <button type="button" class="swatch active" data-color="#FFFFFF" style="background:#FFFFFF" aria-label="White"></button>
+        <button type="button" class="swatch" data-color="#FFD166" style="background:#FFD166" aria-label="Gold"></button>
+        <button type="button" class="swatch" data-color="#FF5DA2" style="background:#FF5DA2" aria-label="Pink"></button>
+        <button type="button" class="swatch" data-color="#4DE3FF" style="background:#4DE3FF" aria-label="Cyan"></button>
+      </div>
+    </div>
+
+    <div class="group">
+      <h2>4 · Export</h2>
+      <div class="sizes" role="group" aria-label="Export size">
+        <label><input type="radio" name="size" value="1080x1080"> 1080 × 1080</label>
+        <label><input type="radio" name="size" value="1080x1350"> 1080 × 1350</label>
+        <label><input type="radio" name="size" value="1920x1080" checked> 1920 × 1080</label>
+      </div>
+      <button id="export" type="button" class="exportbtn">Export PNG</button>
+      <p id="status" role="status"></p>
+    </div>
+  </section>
+
+  <section class="stage">
+    <canvas id="cover" width="960" height="540" aria-label="Cover preview"></canvas>
+    <p class="hint">Drag a panel on the cover to reposition its photo. Click a panel to select it.</p>
+  </section>
+</main>
+<script src="./src/cover.js"></script>
+<script src="./src/shots.js"></script>
+<script src="./src/main.js"></script>
+</body>
+</html>
